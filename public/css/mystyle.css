@@ -1,13 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
 :root {
     /*my root*/
 
- --pr-color:#c77693;
+ /* --pr-color:#c77693; */
+ --pr-color:#f19f9e;
  --bg-danger:#c95439;
  --primary-font:"Poppins","sans-serif";
  --bg-gray: #f8f8f8a8;
@@ -172,197 +176,190 @@ color: var(--pr-color) !important;
     color: var(--gray)!important;
 }
 
-
-
-
-
-
-
-
-
-
-
-/********  Home style fin kyna dok i3lanat kaytrko***********/
+/* Home section */
 .home h2{
-    color:var(--gray);
-    text-shadow:3px 1px #8f8e8eb0;
+    color: var(--pr-color);
+    font-size: 5rem;
+    font-family: 'Philosopher', 'sans-serif';
 }
+
 .home p{
-    color: var(--bg-gray);
-    font-weight: bold;
+    color: black;
+    opacity: 0.5;
+    font-family: "Poppins", sans-serif;
     font-size: 2rem;
 }
-.home .home-banner-1,
-.home  .home-banner-2
-{
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
-    min-height: 650px;
-    position: relative;
 
+.home .home-banner-1, .home .home-banner-2{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 950px
 }
+
 .home .home-banner-1{
-    background-image: url("../images/Background/BeautifulWomanShooping.jpg");
+    background-image: url("../images/logos/logo.png");
 }
-.home  .home-banner-2{
-    background-image: url("../images/Background/Whitebgmanshoop.webp");
+
+.home .home-banner-2{
+    background-image: url("../images/Background/background-home-banner-2.png");
 }
 
 .home .home-banner-text{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-110%,-50%);
-}
-.home .home-banner-text h2{
-    font-size: 6rem;
+    padding-top: 350px;
+    padding-left: 250px;
+    color: var(--pr-color);
 }
 
 .home .carousel-indicators [data-bs-target]{
-    /*dok mostatilat s4ikokin lifltht*/
     background-color: var(--pr-color);
-    margin: 2px;
+    margin-left: 5px;
+    margin-bottom: 30px;
     border: none;
     width: 2.5rem;
-    height: 0.31rem;
+    height: 0.3rem;
 }
+
 .home .carousel-control-next-icon,
 .home .carousel-control-prev-icon{
     background: transparent;
 }
+
 .home .silder-icon{
     font-size: 3rem;
     color: var(--pr-color) !important;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/************** Product Style *****************/
-.products{
-    /*hadak section kbir lifih ga3 product khas blproduct*/
-    padding-top: 4.75rem;
-
+.home .btn{
+    background-color: #f19f9e;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: 'Philosopher', 'sans-serif';
+    font-size: 20px;
 }
-.head h2::before{
-    /*str litht mn dak title lidrna*/
- content: '';
- width: 30%;
- height: 0.125rem;
- background-color: var(--pr-color);
- position: absolute;
- bottom: 0;
- left: 50%;
- transform: translate(-50%,-50%);
- border-radius: 0.625rem;
+  
+.home .btn:hover{
+    background-color: #f5bbbb;
+}
 
+/* Product section */
+.products{
+    padding-top: 5rem;
+}
+
+/* .head h2::before{
+    content: '';
+    width: 30%;
+    height: 0.125rem;
+    background-color: var(--pr-color);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 0.625rem;
+} */
+
+.head h2{
+    color: var(--pr-color);
+    font-size: 3rem;
+    font-family: 'Philosopher', 'sans-serif';
 }
 
 .product-list .product-info{
-    /*kifach aytstfo m3lomat dyal products fdiv fch kaynin*/
     display: flex;
     flex-direction: column;
     text-align: center;
     padding: 10px;
 }
-.product-list  .product-image{
-    /*ncentri tsawr fdiv fach kaynin*/
+
+.product-list .product-image{
     display: flex;
     justify-content: center;
     justify-items: center;
 }
-.product-list  .product-image img{
-    /*images ndir liha height dyaha omsa2il dyalha*/
+
+.product-list .product-image img{
     height: 300px;
     transition: all 500ms ease-in-out;
 }
 
-
-.product-list  .product-image img:hover{
-    /*kolma drt hover 3la image tkhrj */
-    transform: scale(1.09);
+.product-list .product-image img:hover{
+    transform: scale(1.05);
     transition: all ease 0.3s;
 }
 
 .product-list .product-info h2{
-  font-size: 2.125rem;
-  font-weight: 400;
-  color: var(--gray-dark);
-  transition: all ease 0.3s 0;
-
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
  }
- .product-list .product-info h2:hover{
-    color: var(--pr-color);
-   }
-   .product-list .product-info .product-mad{
-    font-family: serif;
-    font-weight: bolder;
+
+.product-list .product-info .product-made{
+    font-family: "Poppins", sans-serif;
     color: var(--gray);
 }
-   .product-list .product-info .product-prix {
-       font-family: var(--font-family-sans-serif);
-       font-weight: bold;
-   }
 
-   .product-list .product-info .show_product{
-       margin-top: 4px;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       margin-left: 90px;
-       width: 150px;
-       height: 50px;
-       background-color: var(--pr-color);
-       border-radius: 10px;
+.product-list .product-info .product-desc{
+    font-family: "Poppins", sans-serif;
+}
 
+.product-list .product-info .product-price{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+}
 
-   }
-   .product-list .product-info .show_product a{
-    /*color: var(--gray-dark);*/
+/* .product-list .product-info .show_product{
+    margin-top: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 90px;
+    width: 150px;
+    height: 50px;
+    background-color: var(--pr-color);
+    border-radius: 10px;
+} */
+.product-list .product-info .btn{
+    background-color: #f19f9e;
+    border: 2px solid #f19f9e;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: 'Philosopher', 'sans-serif';
+    font-size: 20px;
+}
+  
+.product-list .product-info .btn:hover{
+    background-color: #ffffff;
+    color: #f19f9e;
+}
+   /* .product-list .product-info .show_product a{
     color: var(--white);
     font-family: var(--primary-font);
     text-decoration: none;
     font-size: 1.123rem;
     font-weight: bolder;
-   }
-   .product-list .product-info .show_product:hover{
+   } */
+   /* .product-list .product-info .show_product:hover{
     background: transparent;
     border: 0.10rem solid var(--pr-color);
    }
    .product-list .product-info .show_product:hover a{
     color: var(--gray-dark);
-   }
+   } */
 
-  /* nbdl color dpartiya dpagination */
-  .my-pagination .page-item .page-link{
+.my-pagination .page-item .page-link{
     color: var(--pr-color) !important;
 }
-  .my-pagination .page-item.active .page-link{
-      background-color: var(--pr-color) !important;
-      border-color: var(--pr-color) !important;
-      color: white !important;
-  }
 
-
-
-
-
-
-
-
-
-
+.my-pagination .page-item.active .page-link{
+    background-color: var(--pr-color) !important;
+    border-color: var(--pr-color) !important;
+    color: white !important;
+}
 
 
 
@@ -686,113 +683,106 @@ color: var(--pr-color) !important;
  }
 
 
-
-
-
-
-
-/*************  Contact Section       *************/
-
-.contact .container div{
-    margin: 20px 0;
+/* Contact section */
+.contact .container{
+    padding-top: 3rem;
 }
 
 .contact-middle div{
-  /*divat lfihom dok m3lomat 3liya */
-  text-align: center;
-  padding: 25px 0;
-  background-color: var(--pr-color);
-  color:#fff;
-  border-radius: 5px 5px 5px 5px;
+    text-align: center;
+    padding-top: 20px;
+    background-color: var(--pr-color);
+    color:#fff;
+    border-radius: 5px 5px 5px 5px;
 }
+
 .contact-middle div span{
     display: block;
-
 }
+
 .contact-icon{
     font-size: 30px;
 }
 
-
 .contact-middle div span:nth-child(2){
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
 }
+
 .contact-middle div p{
-    font-weight: 300;
-    opacity: 0.7;
+    opacity: 0.8;
+    font-family: "Poppins", sans-serif;
 }
+
 .contact-middle{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-gap: 20px;
- }
+}
 
-   /** style dyal contact-bottom fin kayna contact form o kharita dyal Map dyali**/
-
- .contact-bottom{
-   margin-top: 50px !important;
- }
- /*fles ecrans lkbar form tji hda lkharita*/
 .contact-bottom{
+    margin-top: 50px !important;
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-gap: 40px;
 }
 
- .contact-bottom .form{
-     padding: 20px;
- }
- .contact-bottom .form input[type="text"],.contact-bottom .form input[type="email"],.contact-bottom .form textarea{
+.contact-bottom .form{
+    padding-bottom: 20px;
+}
 
-     width: 100%;
-     font-size : 16px;
-     padding :10px 15px;
-     margin: 10px 0;
-     border: 1px solid var(--pr-color) ;
-     outline: none;
-     border-radius: 5px;
- }
- .contact-bottom .form .btn-send{
-     background: transparent;
-     border-width: 100px;
-     height: 35px;
-     border: 2px solid var(--pr-color);
-     border-radius: 3px;
-     font-weight: bold;
-     color: var(--pr-color);
+.contact-bottom .form input[type="text"],.contact-bottom .form input[type="email"],.contact-bottom .form textarea{
+    width: 100%;
+    font-size : 16px;
+    padding :10px 15px;
+    margin: 10px 0;
+    border: 1px solid var(--pr-color) ;
+    outline: none;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+}
 
- }
- .contact-bottom .form .btn-send:hover,.contact-bottom .form .btn-send:active{
+.contact-bottom .form .btn-send{
+    border-radius: 3px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 2px solid #f19f9e;
+    cursor: pointer;
+    color: #f19f9e;
+    font-weight: 500;
+    font-family: 'Poppins', 'sans-serif';
+}
+
+.contact-bottom .form .btn-send:hover{
     background-color: var(--pr-color);
     color: var(--white);
-
 }
-.contact-bottom .my_map{
+
+/* .contact-bottom .my_map{
  border-radius: 10px 10px 10px 10px;
  box-shadow:1px 1.2px 1.3px 1px var(--pr-color);
-}
+} */
 
 
 
-/********** Footer Section Style ********************/
+/* Footer section */
 .footer{
     background-color: var(--pr-color);
-    padding: 25px 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+    padding: 50px 0;
+    font-family: 'Philosopher', 'sans-serif';
 }
 
 .footer .social{
     text-align: center;
     padding-bottom: 25px;
-    color: #4b4c4d;
+    color: black;
 }
 
 .footer .social a{
     font-size: 24px;
     color: inherit;
-    border: 1px solid rgb(59, 54, 54);
+    border: 1px solid black;
     width: 40px;
     height: 40px;
     line-height: 38px;
@@ -802,41 +792,45 @@ color: var(--pr-color) !important;
     margin: 0 9px;
     opacity: 0.75;
 }
-.footer .social a:hover{
 
-    opacity: 0.9;
+.footer .social a:hover{
+    opacity: 0.5;
 }
+
 .footer .list{
     margin-top: 0;
     padding: 0;
     list-style: none;
-    font-size: 18px;
     line-height: 1.6;
     margin-bottom: 0;
     text-align: center;
-
 }
 
 .footer .list li{
   display: inline-block;
-  margin: 0 4px;
+  margin: 0 10px;
 }
+
 .footer .list li a{
-    color: rgb(65, 62, 62) !important;
+    color: black !important;
     text-decoration: none;
-    opacity: 0.8;
+    opacity: 0.7;
     font-weight: bold;
+    font-family: 'Philosopher', 'sans-serif';
+    font-size: 20px;
 }
+
+.footer .list li a:hover{
+    opacity: 0.5;
+}
+
 .footer .copyright{
     margin-top: 15px;
     text-align: center;
-    font-size: 13px;
-    color: #aaa;
+    color: black;
 }
-.footer .copyright:hover{
 
-    color: rgb(77, 77, 77);
-}
+
 
 
 

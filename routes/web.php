@@ -11,6 +11,9 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\PaypalPaymentController;
 use App\Http\Controllers\UserContrller;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -81,3 +84,5 @@ Route::get('/my_orders',[UserContrller::class,'getUserOrders'])->name("user.orde
 Route::get('edit/user/{user}',[UserContrller::class,'edit'])->name('user.edit');
  // update profil route
  Route::put('update/{user}/user',[UserContrller::class,'update'])->name('user.update');
+
+ 

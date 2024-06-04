@@ -11,7 +11,7 @@
                              <h3><i class="fa fa-tshirt"></i> Add New Product</h3>
                          </div>
                          <div class="card-body">
-                             <form action="{{route("category.store")}}" method="POST" enctype="multipart/form-data">
+                             <form action="{{route('item.store')}}" method="POST" enctype="multipart/form-data">
                                @csrf
                                <div class="row mb-3">
                                    <label for="title" class="col-md-2 col-sm-3 form-label">Title :</label>
@@ -120,7 +120,7 @@
                                       {{-- start category  --}}
                                       <div class="input-group mb-3">
                                         <label for="cat" class="col-md-2 col-sm-3 form-label">Product Category :</label>
-                                        <select name="cat_id" id="cat" class="form-control">
+                                        <select name="category_id" id="cat" class="form-control">
                                             <option value="" selected disabled>Choose a Category </option>
                                             @foreach ($cats as $cat)
                                             <option value="{{$cat->id}}" >{{$cat->title}}</option>
