@@ -13,7 +13,7 @@
                       <div class="carousel-item active">
                         <div class="home-banner home-banner-1">
                             <div class="home-banner-text">
-                                <h2>Woman</h2>
+                                <h2>TEtstststststststtsst</h2>
                                 <P><span style="color:#3b3b3b77">Special offers for</span> you woman</P>
                                 <a href="/#products" class="btn btn-danger text-uppercase mt-4">Our Products</a>
                             </div>
