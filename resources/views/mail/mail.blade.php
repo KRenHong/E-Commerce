@@ -1,11 +1,13 @@
 @component('mail::message')
-
-<h1>{{$details['title']}}</h1>
+<h2>From: {{$details['name']}}</h2>
+<h2>Email: {{$details['email']}}</h2>
+<h2>Subject: {{$details['title']}}</h2>
 <p>{{$details['body']}}</p>
-@component('mail::button', ['url' => 'http://first:8000/'])
+
+@component('mail::button', ['url' => 'http://127.0.0.1:8002/'])
 Visit Site
 @endcomponent
 
-Thanks You,<br>
+Thank You,<br>
 {{ config('app.name') }}
 @endcomponent

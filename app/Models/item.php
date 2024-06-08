@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class item extends Model
 {
     use HasFactory;
-    protected   $fillable = [
+    protected $fillable = [
         "title",
         "slug",
         "description",
@@ -21,17 +21,19 @@ class item extends Model
        // "Approve",
         "category_id"
     ];
-    public function getRouteKeyName()
-     {
-         return 'slug';
-     }
-    // relation with category
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    // Relation with category
     public function category()
     {
       return $this->belongsTo(category::class);
     }
-    // relation wit comments
+
+    // Relation wit comments
     public function comments(){
         return $this->hasMany(comment::class);
     }
@@ -39,5 +41,4 @@ class item extends Model
     public function order(){
         return $this->belongsTo(order::class);
     }
-
 }

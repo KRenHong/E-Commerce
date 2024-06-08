@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\category;
-use App\Models\comment;
 use App\Models\item;
 use App\Models\order;
-use App\Models\product;
+use App\Models\comment;
+use App\Models\category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Symfony\Component\HttpFoundation\Session\Session;
+// use Illuminate\Support\Facades\Redirect;
+// use Symfony\Component\HttpFoundation\Session\Session;
 
 class AdminController extends Controller
 {

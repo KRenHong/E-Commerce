@@ -43,13 +43,15 @@
 
     <div class="catsection col-12">
     <!-- Swiper -->
-    <!-- <div class="swiper mySwiper">
+        <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-        @foreach ($cats->where("visibility",1) as $cat)
-            <div class="swiper-slide"><a href="{{route("cat.items",[$cat->slug])}}">{{$cat->title}} ({{$cat->items->count()}})</a></div>
-        @endforeach
+                @foreach ($cats->where("visibility",1) as $cat)
+                <div class="swiper-slide">
+                    <a href="{{route('cat.items',[$cat->slug])}}">{{$cat->title}} ({{$cat->items->count()}})</a>
+                </div>
+                @endforeach
+            </div>
         </div>
-    </div> -->
     </div>
 </section>
 
@@ -73,8 +75,8 @@
                     </div>
 
                     <div class="product-info pt-3">
-                        <h2 class="text-capitalize product-title" >{{$item->title}}</h2>
-                        <h5 class="product-desc">{{Str::limit($item->description,30)}}</h5>
+                        <h3 class="text-capitalize product-title" >{{$item->title}}</h3>
+                        <h6 class="product-desc">{{Str::limit($item->description,30)}}</h6>
                         <h6 class="product-made">Made in {{$item->Country_Mad}} </h6>
 
                         <span class="mb-0 product-price">RM {{$item->price}}
@@ -206,7 +208,7 @@
         var Msj=document.getElementsByClassName("msj")
         var btnclose=document.getElementById("close");
         btnclose.onclick=function(){
-            for(c=0;c<Msj.length;c++){
+            for(c = 0; c < Msj.length; c++){
                 Msj[c].style.display = "none";
             }
         }

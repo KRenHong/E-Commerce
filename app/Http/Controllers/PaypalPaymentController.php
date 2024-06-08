@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\item;
 use App\Models\order;
 use Illuminate\Http\Request;
-use Darryldecode\Cart\Cart;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\Auth;
+// use Darryldecode\Cart\Cart;
 use Srmklive\PayPal\Services\ExpressCheckout;
 use Srmklive\PayPal\Services\AdaptivePayments;
 
@@ -32,6 +32,7 @@ class PaypalPaymentController extends Controller
                 'qty' => $item->quantity
             ]);
         }
+
         $data['invoice_id'] = auth()->user()->id;
         $data['invoice_description'] = "Order #{$data['invoice_id']} Invoice";
         $data['return_url'] = route('success.payment');
@@ -41,6 +42,7 @@ class PaypalPaymentController extends Controller
         foreach ($data['items'] as $item) {
             $total += $item['price'] * $item['qty'];
         }
+
         $data['total'] = $total;
         $paypalModule = new ExpressCheckout();
 
@@ -49,12 +51,14 @@ class PaypalPaymentController extends Controller
 
         return redirect($res['paypal_link']);
     }
+
     public function CancelPayment()
     {
         return redirect()->route("cart.index")->with([
             'info' => "You have declined the payment.",
         ]);
     }
+
     public function SuccessPayment(Request $request)
     {
         $paypalModule = new ExpressCheckout;
@@ -68,14 +72,13 @@ class PaypalPaymentController extends Controller
                     "price" => $item->price,
                     "total" => $item->price * $item->quantity,
                     "paid" => 1,
-
-
                 ]);
-                //update qte in item table
+
+                // Update quantity in item table
                 DB::update("update items set Qte=Qte-? where id=?", [$item->quantity, $item->id]);
-                // nkhwi panier
                 \Cart::Clear();
             }
+
             return redirect()->route('home')->with([
                 'success' => 'Payment has been made successfully.'
             ]);

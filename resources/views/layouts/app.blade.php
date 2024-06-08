@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"  />
     <link href="../../css/mystyle.css" rel="stylesheet">
 
-    @yield('styele')
+    <!-- @yield('styele') -->
 </head>
 
 <body>
@@ -72,14 +72,13 @@
                         @else
                             @if (Route::has('login'))
                             <li class="nav-item d-flex align-items-center login ">
-                                <i class="fa fa-user "></i>  
                                 <a class="nav-link ml-2" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link register" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @endif
@@ -114,10 +113,10 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    {{-- Edit profin button --}}
+                                    {{-- Edit profile button --}}
                                     <a class="dropdown-item" href="{{ route('user.edit',auth()->user()->id) }}">{{ __('Edit Profile') }}</a>
 
-                                    {{-- Logout Button --}}
+                                    {{-- Logout button --}}
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">

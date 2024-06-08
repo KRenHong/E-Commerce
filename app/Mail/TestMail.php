@@ -2,10 +2,11 @@
 
 namespace App\Mail;
 
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
+
 use Illuminate\Mail\Mailable;
+use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
+// use Illuminate\Contracts\Queue\ShouldQueue;
 
 class TestMail extends Mailable
 {
@@ -17,6 +18,7 @@ class TestMail extends Mailable
      *
      * @return void
      */
+
     public function __construct($details)
     {
         //
@@ -31,6 +33,6 @@ class TestMail extends Mailable
     public function build()
     {
         // return $this->subject("Test Mail From Surfside Media")->view('mail.mail-view-lisaybt');
-        return $this->subject("TEST MAIL FROM ABDO SHOP FOR TESTING ")->markdown('mail.mail');
+        return $this->subject("MESSAGE FROM SKINSENSE USER")->markdown('mail.mail');
     }
 }

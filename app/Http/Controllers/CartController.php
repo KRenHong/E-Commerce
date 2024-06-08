@@ -3,20 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\item;
-use Darryldecode\Cart\Cart;
+// use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
     //
-
     public function index()
     {
-
         $CartContent = \Cart::getContent();
         return view("cart.index")->with([
             "items" => $CartContent,
-            "countcart" => $CartContent->count(), // Qte
+            "countcart" => $CartContent->count(), // Quantity
         ]);
     }
 
@@ -36,7 +34,7 @@ class CartController extends Controller
     public function updateItemOnCart(item $item, Request $request)
     {
 
-        // update card
+        // Update card
         \Cart::update($item->id, array(
             'quantity' => array(
                 'relative' => false,
@@ -49,7 +47,7 @@ class CartController extends Controller
 
     public function removeItemFromCart(item $item, Request $request)
     {
-        // remove cart
+        // Remove cart
         \Cart::remove($item->id);
         return redirect()->route('cart.index');
     }

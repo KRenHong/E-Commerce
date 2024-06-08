@@ -16,6 +16,7 @@ class OrderController extends Controller
     {
        $this->middleware("auth:admin");
     }
+
     public function index()
     {
         //
@@ -80,8 +81,9 @@ class OrderController extends Controller
        $order->update([
          'delivered'=>1,
        ]);
+
        return redirect()->route("order.index")->with([
-          "success"=>"Order Updated",
+          "success"=>"Order has been updated",
        ]);
     }
 
@@ -96,7 +98,7 @@ class OrderController extends Controller
         //
         $order->delete();
         return redirect()->route("order.index")->with([
-           "success"=>"Order Deleted",
+           "success"=>"Order has been deleted",
         ]);
     }
 }

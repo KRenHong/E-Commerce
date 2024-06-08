@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -17,12 +17,12 @@ class CategoryController extends Controller
     {
         $this->middleware("auth:admin")->except("indix", "show");
     }
+
     public function index()
     {
-        // show index view
-
+        // Show index view
         return view("admin.categories.index")->with([
-            "cats" => category::latest()->paginate(5),
+            "cats" => category::orderBy('id','asc')->paginate(5),
         ]);
     }
 
@@ -48,11 +48,12 @@ class CategoryController extends Controller
         //
         $v = validator($request->all(), [
             "title" => "required|max:20|min:3",
-
         ]);
+        
         if ($v->fails()) {
             return back()->withErrors($v)->withInput();
         }
+
         $title = $request->title;
         category::Create([
             "title" => $title,
@@ -60,9 +61,8 @@ class CategoryController extends Controller
             "visibility" => $request->visibility
         ]);
 
-
         return  redirect()->route("category.index")->with([
-            "success" => " Category " . $title . " Added "
+            "success" => " Category " . $title . " has been added"
         ]);
     }
 
@@ -86,7 +86,6 @@ class CategoryController extends Controller
     public function edit(category $category)
     {
         //
-
         return view("admin.categories.edit")->with([
             "cat" => $category,
         ]);
@@ -102,11 +101,11 @@ class CategoryController extends Controller
     public function update(Request $request, category $category)
     {
         //
-        //
         $v = validator($request->all(), [
             "title" => "required|max:20|min:3",
 
         ]);
+
         if ($v->fails()) {
             return back()->withErrors($v)->withInput();
         }
@@ -118,9 +117,8 @@ class CategoryController extends Controller
             "visibility" => $request->visibility
         ]);
 
-
         return  redirect()->route("category.index")->with([
-            "success" => " Category " . $title . " Updated "
+            "success" => " Category " . $title . " has been updated"
         ]);
     }
 
@@ -135,7 +133,7 @@ class CategoryController extends Controller
         //
         $category->delete();
         return  redirect()->route("category.index")->with([
-            "success" => " Category " . $category->title . " Deleted "
+            "success" => " Category " . $category->title . " has been deleted"
         ]);
     }
 }

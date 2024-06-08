@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class category extends Model
 {
@@ -15,11 +15,12 @@ class category extends Model
         'visibility',
     ];
 
-     public function getRouteKeyName()
-     {
-         return 'slug';
-     }
-    //relations with items
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    // Relations with items
     public function items(){
         return $this->hasMany(item::class);
     }
