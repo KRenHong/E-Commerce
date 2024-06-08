@@ -561,8 +561,8 @@ color: var(--gray-dark);
 
 .Show-product .show-product-image img{
     background: transparent;
-    width: auto;
-    height: auto;
+    width: 900px;
+    height: 500px;
     /* width: 280px;
     height: 300px; */
 }
