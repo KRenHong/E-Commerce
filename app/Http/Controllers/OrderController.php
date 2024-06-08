@@ -21,7 +21,7 @@ class OrderController extends Controller
     {
         //
         return view("admin.orders.index")->with([
-            "orders"=>order::latest()->paginate(10),
+            "orders"=>order::orderBy('id','asc')->paginate(10),
         ]);
     }
 

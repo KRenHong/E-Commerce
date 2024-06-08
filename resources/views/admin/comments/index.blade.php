@@ -33,26 +33,26 @@
 
                                 <td class="d-flex f-row justify-content-center align-items-center">
                                     @if ($comment->status===0)
-                                    <form id="{{$comment->id}}" action="{{route('Comment.update',$comment->id)}}" method="Post">
+                                    <form id="approve-{{$comment->id}}" action="{{route('Comment.update',$comment->id)}}" method="Post">
                                         @csrf
                                         @method("PUT")
                                         <button
                                             onclick="event.preventDefault();
-                                                    document.getElementById('{{$comment->id}}').submit();"
+                                                    document.getElementById('approve-{{$comment->id}}').submit();"
                                             class="btn btn-primary btn-sm ml-2" >
                                             <i class="fa fa-check"></i>
                                         </button>
                                     </form>
                                     @endif
-
-                                    <form id="{{$comment->id}}" action="{{route('Comment.destroy',$comment->id)}}" method="POST">
+                                    
+                                    <form id="delete-{{$comment->id}}" action="{{route('Comment.destroy',$comment->id)}}" method="POST">
                                         @csrf
                                         @method("DELETE")
                                         <button
                                         class="btn btn-danger btn-sm ml-2"
                                             onclick="event.preventDefault();
                                             if(confirm('Are you sure you want to delete {{$comment->user->name}}\'s comment?')){
-                                            document.getElementById('{{$comment->id}}').submit();}">
+                                            document.getElementById('delete-{{$comment->id}}').submit();}">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </form>
@@ -63,7 +63,7 @@
                     </table>
 
                     {{-- Pagination--}}
-                    <div class="justify-content-center d-flex">
+                    <div class="justify-content-center d-flex my-pagination">
                         {{$comments->links("pagination::bootstrap-4")}}
                     </div>
                 </div>

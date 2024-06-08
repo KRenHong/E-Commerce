@@ -2,13 +2,13 @@
 
 @section('content')
 <section id="profile" class="profile-section">
-  @if (session()->has("success") || session()->has('info') || session()->has('success-mail') || $errors->all())
+  <!-- @if (session()->has("success") || session()->has('info') || session()->has('success-mail') || $errors->all())
   <div class="row" style="margin-top: 80px">
     <div class=" col-sm-6 col-md-8 mx-auto my-4">
       @include('layouts.alerts')
     </div>
   </div>
-  @endif
+  @endif -->
 
   <center class='profile-container mt-5'>
     <div class="row">

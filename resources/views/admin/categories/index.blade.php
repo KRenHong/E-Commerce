@@ -51,7 +51,7 @@
                                         @method("DELETE")
                                         <button class="btn btn-danger btn-sm "
                                             onclick="event.preventDefault();
-                                            if(confirm('Would you like Delete a Category {{$cat->title}} ??')){
+                                            if(confirm('Would you like to delete the category {{$cat->title}}?')){
                                             document.getElementById('{{$cat->id}}').submit();}">
                                             <i class="fa fa-trash"></i>
                                         </button>
@@ -63,7 +63,7 @@
                     </table>
 
                     {{-- Pagination --}}
-                    <div class="justify-content-center d-flex">
+                    <div class="justify-content-center d-flex my-pagination">
                         {{$cats->links("pagination::bootstrap-4")}}
                     </div>
                 </div>

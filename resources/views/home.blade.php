@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="product-info pt-3">
-                        <h3 class="text-capitalize product-title" >{{$item->title}}</h3>
+                        <h4 class="text-capitalize product-title" >{{$item->title}}</h4>
                         <h6 class="product-desc">{{Str::limit($item->description,30)}}</h6>
                         <h6 class="product-made">Made in {{$item->Country_Mad}} </h6>
 

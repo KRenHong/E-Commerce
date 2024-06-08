@@ -121,11 +121,11 @@
           {{-- Payment --}}
           @if (Cart::getSubTotal()>0)
           <div class="row">
-            <div class="form-group">
+            <!-- <div class="form-group">
               <a href="{{route('make.payment')}}" class="btn mt-3 ml-3 d-flex align-items-center"  >
                 <i class="fab fa-cc-paypal mr-2"></i>PAY RM {{Cart::getSubTotal() }} WITH PAYPAL
               </a>
-            </div>
+            </div> -->
 
             <div class="form-group">
               <a href="{{route('cart.checkout',Cart::getSubTotal())}}" class="btn mt-3 ml-3 d-flex align-items-center">

@@ -71,7 +71,7 @@
 
                                 {{-- Country made --}}
                                 <div class="row mb-3">
-                                    <label for="cm" class="col-md-2 col-sm-3 form-label">Country Mad :</label>
+                                    <label for="cm" class="col-md-2 col-sm-3 form-label">Country Made :</label>
                                     
                                     <div class="col-md-10 col-sm-9">
                                         <input type="text" name="Country_Mad" id="cm" class="form-control" placeholder="Enter the name of the country of manufacture">

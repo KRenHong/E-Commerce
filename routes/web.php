@@ -60,9 +60,9 @@ Route::get('/checkout/{amount}',[PaymentsController::class,"checkout"])->name("c
 Route::post('/charge',[PaymentsController::class,"charge"])->name("cart.charge");
 
 //Payment with paypal routes
-Route::get("/handel-payment",[PaypalPaymentController::class,"handelPayment"])->name("make.payment");
-Route::get("/Cancel-payment",[PaypalPaymentController::class,"CancelPayment"])->name("cancel.payment");
-Route::get("/Payment-success",[PaypalPaymentController::class,"SuccessPayment"])->name("success.payment");
+// Route::get("/handel-payment",[PaypalPaymentController::class,"handelPayment"])->name("make.payment");
+// Route::get("/Cancel-payment",[PaypalPaymentController::class,"CancelPayment"])->name("cancel.payment");
+// Route::get("/Payment-success",[PaypalPaymentController::class,"SuccessPayment"])->name("success.payment");
 
 // Send email route
 Route::post("/send_email",[MailController::class,'SendEmail'])->name("send_email");

@@ -44,8 +44,8 @@
     --breakpoint-md: 768px;
     --breakpoint-lg: 992px;
     --breakpoint-xl: 1200px;
-    --font-family-sans-serif: "Nunito", sans-serif;
-    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    /* --font-family-sans-serif: "Nunito", sans-serif;
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; */
 }
 
 /* Primary colour */
@@ -284,7 +284,7 @@ li,a,button{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 850px
+    height: 820px
 }
 
 .home .home-banner-1{
@@ -436,7 +436,7 @@ li,a,button{
     transition: all ease 0.3s;
 }
 
-.product-list .product-info h3{
+.product-list .product-info h4{
   font-weight: 500;
   font-family: "Poppins", sans-serif;
  }
@@ -476,6 +476,7 @@ li,a,button{
     font-weight: 700;
     font-family: 'Philosopher', 'sans-serif';
     font-size: 16px;
+    margin-bottom: 30px;
 }
   
 .product-list .product-info .btn:hover{
@@ -1059,8 +1060,8 @@ color: var(--gray-dark);
 
 /* Profile section */
 #profile{
-    background-color: #fff5ee;
-    padding: 6rem;
+    /* background-color: #fff5ee; */
+    padding-top: 5rem;
 }
 
 /* #profile:focus{

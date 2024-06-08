@@ -45,13 +45,13 @@
 
                                 <td>
                                     @if ($order->delivered===0)
-                                    <form  id="{{$order->id}}" action="{{route('order.update',$order->id)}}" method="Post">
+                                    <form  id="approve-{{$order->id}}" action="{{route('order.update',$order->id)}}" method="Post">
                                         @csrf
                                         @method("PUT")
                                         <i class="fa fa-exclamation-circle text-danger text-align-center"></i>
                                         <button 
                                             onclick="event.preventDefault();
-                                                    document.getElementById('{{$order->id}}').submit();"
+                                                    document.getElementById('approve-{{$order->id}}').submit();"
                                             class="btn btn-primary btn-sm ml-2" >
                                             <i class="fa fa-check"></i>
                                         </button>
@@ -64,13 +64,13 @@
 
                                 <td class="d-flex f-row justify-content-center align-items-center">
                                     {{-- Delete Order --}}
-                                    <form id="{{$order->id}}" action="{{route('order.destroy',$order->id)}}" method="POST">
+                                    <form id="delete-{{$order->id}}" action="{{route('order.destroy',$order->id)}}" method="POST">
                                         @csrf
                                         @method("DELETE")
                                         <button class="btn btn-danger btn-sm ml-2"
                                             onclick="event.preventDefault();
                                         if(confirm('Are you sure you want to delete order ID {{$order->id}}?')){
-                                        document.getElementById('{{$order->id}}').submit();}">
+                                        document.getElementById('delete-{{$order->id}}').submit();}">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </form>
@@ -81,7 +81,7 @@
                     </table>
 
                     {{-- Pagination--}}
-                    <div class="justify-content-center d-flex">
+                    <div class="justify-content-center d-flex my-pagination">
                         {{$orders->links("pagination::bootstrap-4")}}
                     </div>
                 </div>
