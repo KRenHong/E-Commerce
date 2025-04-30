@@ -17,11 +17,12 @@ class CommentController extends Controller
         $this->middleware("auth:admin")->except("store");
         $this->middleware("auth");
     }
+
     public function index()
     {
         //
         return view("admin.comments.index")->with([
-            "comments" => comment::latest()->paginate(10),
+            "comments" => comment::orderBy('id','asc')->paginate(10),
         ]);
     }
 
@@ -46,6 +47,7 @@ class CommentController extends Controller
         //
         $comment = filter_var($request->comment, FILTER_SANITIZE_STRING);
         $userId = auth()->user()->id;
+
         if (!empty($comment)) {
             comment::create([
                 "comment" => $comment,
@@ -53,12 +55,13 @@ class CommentController extends Controller
                 "item_id" => $request->item_id,
                 "user_id" => $userId,
             ]);
+
             return redirect()->route("home")->with([
-                "success" => "Your comment is awaiting validation "
+                "success" => "Your comment is awaiting validation"
             ]);
         } else {
             return redirect()->route("home")->with([
-                "error" => "Sorry, it is not possible to enter an empty value in Comment !! "
+                "error" => "Sorry, it is not possible to enter an empty value in comment"
             ]);
         }
     }
@@ -83,7 +86,6 @@ class CommentController extends Controller
     public function edit(comment $comment)
     {
         //
-
     }
 
     /**
@@ -101,8 +103,9 @@ class CommentController extends Controller
         $comment->update([
             'status' => 1,
         ]);
+
         return redirect()->route("Comment.index")->with([
-            "success" => "Comment Approved",
+            "success" => "Comment has been approved",
         ]);
     }
 
@@ -115,11 +118,10 @@ class CommentController extends Controller
     public function destroy($id)
     {
         //
-
         $comment = comment::findOrFail($id);
         $comment->delete();
         return redirect()->route("Comment.index")->with([
-            "success" => "Comment Deleted",
+            "success" => "Comment has been deleted",
         ]);
     }
 }

@@ -1,55 +1,45 @@
 {{-- Error alert --}}
 @if ($errors->all())
+@foreach ($errors->all() as $er)
+<div class="error-Message msj" id="nice">
+  <strong>{!! $er !!}</strong>
 
- @foreach ($errors->all() as $er)
- <div class="error-Message msj"  id="nice">
-    <strong>{!! $er !!}</strong>
-    <button type="button" id="close">
-     <span>&times;</span>
-   </button>
-
- </div>
-
- @endforeach
-
- @endif
-
- {{-- Success messaje --}}
-@if (session()->has("success"))
-
-<div class="nice-Message msj"  id="nice">
-   <strong>{{session()->get("success")}}</strong>
-   <button type="button" id="close">
+  <button type="button" id="close">
     <span>&times;</span>
   </button>
-
 </div>
-
-
+@endforeach
 @endif
 
-{{-- info alert --}}
+{{-- Success message --}}
+@if (session()->has("success"))
+<div class="nice-Message msj" id="nice">
+  <strong>{{session()->get("success")}}</strong>
 
+  <button type="button" id="close">
+    <span>&times;</span>
+  </button>
+</div>
+@endif
+
+{{-- Info alert --}}
 @if (session()->has('info'))
-<div class=" info-Message msj"  id="nice">
-    <strong>{{session()->get('info')}}</strong>
-    <button type="button" id="close">
-     <span>&times;</span>
-   </button>
+<div class=" info-Message msj" id="nice">
+  <strong>{{session()->get('info')}}</strong>
 
- </div>
-
+  <button type="button" id="close">
+    <span>&times;</span>
+  </button>
+</div>
 @endif
 
-{{-- Email success Messaje--}}
-
+{{-- Email success message --}}
 @if (session()->has('success-mail'))
-<div class=" info-Message msj"  id="nice">
-    <strong>{{session()->get('success-mail')}}</strong>
-    <button type="button" id="close">
-     <span>&times;</span>
-   </button>
+<div class=" info-Message msj" id="nice">
+  <strong>{{session()->get('success-mail')}}</strong>
 
- </div>
-
+  <button type="button" id="close">
+    <span>&times;</span>
+  </button>
+</div>
 @endif

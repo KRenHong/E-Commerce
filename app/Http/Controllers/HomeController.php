@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\category;
 use App\Models\item;
-use Illuminate\Http\Request;
+use App\Models\category;
+// use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -31,8 +31,6 @@ class HomeController extends Controller
 
         ]);
     }
-
-
 
     public function getItemByCategory(category $category)
     {

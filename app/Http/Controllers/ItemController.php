@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Validator;
+// Use validator;
 use App\Models\item;
-use App\Models\category;
-use App\Models\comment;
 use App\Models\User;
-use Illuminate\Support\Facades\File;
+use App\Models\comment;
+use App\Models\category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ItemController extends Controller
 {
@@ -22,11 +22,12 @@ class ItemController extends Controller
     {
         $this->middleware("auth:admin")->except("show");
     }
+
     public function index()
     {
         //
         return view("admin.items.index")->with([
-            "items" => item::latest()->paginate(5),
+            "items" => item::orderBy('id','asc')->paginate(5),
         ]);
     }
 
@@ -49,60 +50,108 @@ class ItemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // public function store(Request $request)
+    // {
+    //     //
+    //     $request->validate([
+    //         'title' => 'required|min:3|max:20',
+    //         'description' => "required|min:5",
+    //         'price' => 'numeric|Nullable',
+    //         'Old_price' => 'numeric|Nullable',
+    //         'price' => 'numeric|Nullable',
+    //         'in_Stock' => 'numeric|Nullable',
+    //         'Qte' => 'numeric|Nullable',
+    //         'image' => 'required|image|mimes:png,jpg,jprg|max:7000',
+    //         'category_id' => 'required|numeric'
+    //     ]);
+
+
+    //     if ($request->has("image")) {
+    //         $file = $request->image;
+    //         $imageName = time() . '_' . $file->getClientOriginalName();
+    //         $file->move(public_path("images/items"), $imageName);
+    //         $title = $request->title;
+
+    //         // Echo $title;
+    //         if ($request->price === "" && $request->in_Stock === "" && $request->Qte === "" && $request->Old_price == "") {
+    //             $request->price = 0;
+    //             $request->in_Stock = 0;
+    //             $request->Qte = 0;
+    //             $request->Old_price = 0;
+    //         } elseif ($request->price === "") {
+    //             $request->price = 0;
+    //         } elseif ($request->in_Stock == "") {
+    //             $request->in_Stock = 0;
+    //         } elseif ($request->Qte == "") {
+    //             $request->Qte = 0;
+    //         } elseif ($request->Old_price == "") {
+    //             $request->Old_price = 0;
+    //         }
+
+    //         item::create([
+    //             "title" => $title,
+    //             "slug" => Str::slug($title),
+    //             "description" => $request->description,
+    //             "price" => $request->price,
+    //             "Old_price" => $request->Old_price,
+    //             "in_Stock" => $request->in_Stock,
+    //             "Qte" => $request->Qte,
+    //             "Country_Mad" => $request->Country_Mad,
+    //             "image" => $imageName,
+    //             "category_id" => $request->category_id
+    //         ]);
+
+    //         return redirect()->route("item.index")->with([
+    //             "success" => "Product " . $title . " has been added",
+    //         ]);
+    //     }
+    // }
+
     public function store(Request $request)
-    {
-        //
-        $request->validate([
-            'title' => 'required|min:3|max:20',
-            'description' => "required|min:5",
-            'price' => 'numeric|Nullable',
-            'Old_price' => 'numeric|Nullable',
-            'price' => 'numeric|Nullable',
-            'in_Stock' => 'numeric|Nullable',
-            'Qte' => 'numeric|Nullable',
-            'image' => 'required|image|mimes:png,jpg,jprg|max:7000',
-            'category_id' => 'required|numeric'
+{
+    // Validate the incoming request
+    $request->validate([
+        'title' => 'required|min:3|max:20',
+        'description' => 'required|min:5',
+        'price' => 'numeric|nullable',
+        'Old_price' => 'numeric|nullable',
+        'in_Stock' => 'numeric|nullable',
+        'Qte' => 'numeric|nullable',
+        'image' => 'required|image|mimes:png,jpg,jpeg|max:7000',
+        'category_id' => 'required|numeric'
+    ]);
+
+    if ($request->has('image')) {
+        $file = $request->image;
+        $imageName = time() . '_' . $file->getClientOriginalName();
+        $file->move(public_path('images/items'), $imageName);
+        $title = $request->title;
+
+        // Set default values if fields are empty
+        $price = $request->price ?? 0;
+        $in_Stock = $request->in_Stock ?? 0;
+        $Qte = $request->Qte ?? 0;
+        $Old_price = $request->Old_price ?? 0;
+
+        item::create([
+            'title' => $title,
+            'slug' => Str::slug($title),
+            'description' => $request->description,
+            'price' => $price,
+            'Old_price' => $Old_price,
+            'in_Stock' => $in_Stock,
+            'Qte' => $Qte,
+            'Country_Mad' => $request->Country_Mad,
+            'image' => $imageName,
+            'category_id' => $request->category_id
         ]);
 
-
-        if ($request->has("image")) {
-            $file = $request->image;
-            $imageName = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path("images/items"), $imageName);
-            $title = $request->title;
-            //echo $title;
-            if ($request->price === "" && $request->in_Stock === "" && $request->Qte === "" && $request->Old_price == "") {
-                $request->price = 0;
-                $request->in_Stock = 0;
-                $request->Qte = 0;
-                $request->Old_price = 0;
-            } elseif ($request->price === "") {
-                $request->price = 0;
-            } elseif ($request->in_Stock == "") {
-                $request->in_Stock = 0;
-            } elseif ($request->Qte == "") {
-                $request->Qte = 0;
-            } elseif ($request->Old_price == "") {
-                $request->Old_price = 0;
-            }
-            item::create([
-                "title" => $title,
-                "slug" => Str::slug($title),
-                "description" => $request->description,
-                "price" => $request->price,
-                "Old_price" => $request->Old_price,
-                "in_Stock" => $request->in_Stock,
-                "Qte" => $request->Qte,
-                "Country_Mad" => $request->Country_Mad,
-                "image" => $imageName,
-                "category_id" => $request->category_id
-            ]);
-
-            return redirect()->route("item.index")->with([
-                "success" => "Product " . $title . " Added",
-            ]);
-        }
+        return redirect()->route('item.index')->with([
+            'success' => 'Product ' . $title . ' has been added',
+        ]);
     }
+}
+
 
     /**
      * Display the specified resource.
@@ -170,8 +219,9 @@ class ItemController extends Controller
             $file->move(public_path("images/items"), $imageName);
             $item->image = $imageName;
         }
+
         $title = $request->title;
-        //echo $title;
+        // Echo $title;
         if ($request->price === "" && $request->in_Stock === "" && $request->Qte === "" && $request->Old_price == "") {
             $request->price = 0;
             $request->in_Stock = 0;
@@ -201,7 +251,7 @@ class ItemController extends Controller
         ]);
 
         return redirect()->route("item.index")->with([
-            "success" => "Product " . $title . " Updated",
+            "success" => "Product " . $title . " has been updated",
         ]);
     }
 
@@ -214,12 +264,11 @@ class ItemController extends Controller
     public function destroy(item $item)
     {
         //
-
         $image_path = public_path("images/items/" . $item->image);
         if (File::exists($image_path)) {
             unlink($image_path); // msh tswira  mn folder
         }
         $item->delete();
-        return redirect()->route("item.index")->withSuccess("Product Deleted");
+        return redirect()->route("item.index")->withSuccess("Product has been deleted");
     }
 }

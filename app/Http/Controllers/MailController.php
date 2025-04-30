@@ -14,10 +14,11 @@ class MailController extends Controller
         $details = [
             'title' => $request->subject,
             'body' => $request->msj,
+            'name' => $request->name,
+            'email' => $request->email,
         ];
-        Mail::to("benalitaha55@gmail.com")->send(new TestMail($details));
+        Mail::to("skinsense1213@gmail.com")->send(new TestMail($details));
         return redirect()->route('home')->with([
-
             'success-mail' => 'Email Sent'
         ]);
     }
